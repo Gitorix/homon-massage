@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="福祉施設向けの訪問マッサージ。マッサージ・リラクゼーション・関節の可動域の維持と変化をめざしたケアで、ご本人には気分転換を、ご家族には安心を届けます。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="福祉施設向け 訪問マッサージのご案内｜糸井針灸／やくしマッサージ接骨院">
+<meta property="og:description" content="からだがほぐれると毎日がすこし明るくなる。施設まで伺う訪問マッサージのご案内です。">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>訪問マッサージのご案内</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Outfit:wght@400;500;600&display=swap">
+<style>
+/* Layout: 施設訪問の場でめくるように見せる縦長LP。各セクション＝1枚のスライド。ヒーローは「可動域の分度器」が朝日のように開く */
+:root{
+  --bg:#F2F6F4;
+  --surface:#FFFFFF;
+  --ink:#1C3533;
+  --muted:#566E69;
+  --leaf:#2F7F6F;
+  --leaf-soft:#DCEDE7;
+  --sun:#E89A2C;
+  --sun-soft:#FCEBD0;
+  --line:#D3E1DC;
+  --on-leaf:#FFFFFF;
+  --f-display:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+  --f-num:"Outfit","Zen Kaku Gothic New",system-ui,sans-serif;
+  --r:18px;
+  --gutter:clamp(16px,5vw,56px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1C1B;--surface:#162826;--ink:#E4EFEB;--muted:#9CB4AE;--leaf:#6CC3AE;--leaf-soft:#1E3934;
+    --sun:#F4BC5E;--sun-soft:#3A2F1C;--line:#284440;--on-leaf:#0F1C1B;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1C1B;--surface:#162826;--ink:#E4EFEB;--muted:#9CB4AE;--leaf:#6CC3AE;--leaf-soft:#1E3934;
+  --sun:#F4BC5E;--sun-soft:#3A2F1C;--line:#284440;--on-leaf:#0F1C1B;color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--f-body);font-size:16px;line-height:1.9;letter-spacing:.02em;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin-inline:auto;padding-inline:var(--gutter)}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:1.45;text-wrap:balance;margin:0}
+p{margin:0}
+.eyebrow{
+  font-family:var(--f-display);font-weight:500;font-size:.85rem;letter-spacing:.14em;
+  color:var(--leaf);display:inline-flex;align-items:center;gap:.6em;
+}
+.eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--sun)}
+section{padding-block:clamp(72px,11vw,128px);scroll-margin-top:0}
+.sec-head{display:grid;gap:14px;margin-bottom:clamp(36px,5vw,56px);max-width:40em}
+.sec-head h2{font-size:clamp(1.55rem,3.4vw,2.3rem)}
+.sec-head p{color:var(--muted)}
+.btn{
+  display:inline-flex;align-items:center;gap:.6em;
+  font-family:var(--f-display);font-weight:700;font-size:1rem;
+  padding:.95em 1.6em;border-radius:999px;text-decoration:none;
+  background:var(--leaf);color:var(--on-leaf);border:0;cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px var(--leaf)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+
+/* ---------- header ---------- */
+.top{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:color-mix(in srgb,var(--bg) 86%,transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);
+}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{font-family:var(--f-display);font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:.55em;color:var(--ink);text-decoration:none}
+.brand svg{flex:none}
+.brand-name{line-height:1.35}
+.brand .sep{color:var(--muted);margin-inline:.1em}
+.top .btn{padding:.6em 1.2em;font-size:.9rem}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(48px,8vw,96px) clamp(64px,9vw,110px);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:center}
+.hero-copy{display:grid;gap:26px;min-width:0}
+.hero h1{font-size:clamp(2rem,5.2vw,3.4rem);letter-spacing:.01em}
+.hero h1 .hl{
+  background:linear-gradient(transparent 62%,var(--sun-soft) 62%);
+  padding-inline:.08em;
+}
+.hero-lead{font-size:clamp(1rem,1.6vw,1.12rem);color:var(--muted);max-width:30em}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  font-size:.85rem;font-weight:500;padding:.35em .95em;border-radius:999px;
+  background:var(--leaf-soft);color:var(--ink);
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero-photo{margin:0;position:relative;padding-top:24%;min-width:0}
+.gauge{position:absolute;top:0;left:9%;width:82%;aspect-ratio:460/240;z-index:0}
+.gauge svg{width:100%;height:100%;overflow:visible}
+.photo-frame{position:relative;z-index:1}
+.photo-frame img{
+  display:block;width:100%;height:auto;border-radius:22px;
+  box-shadow:0 24px 48px -28px color-mix(in srgb,var(--ink) 55%,transparent);
+}
+.photo-chip{
+  position:absolute;left:14px;bottom:14px;font-size:.8rem;font-weight:500;
+  background:var(--surface);color:var(--ink);padding:.35em .95em;border-radius:999px;
+  box-shadow:0 6px 16px -10px color-mix(in srgb,var(--ink) 60%,transparent);
+}
+.gauge .tick{stroke:var(--line);stroke-width:2;stroke-linecap:round}
+.gauge .tick.major{stroke:var(--muted);stroke-width:2.4}
+.gauge .track{fill:none;stroke:var(--leaf-soft);stroke-width:22;stroke-linecap:round}
+.gauge .fill{fill:none;stroke:url(#g-arc);stroke-width:22;stroke-linecap:round}
+.gauge .deg{font-family:var(--f-num);font-size:13px;fill:var(--muted)}
+.gauge .sunball{fill:var(--sun)}
+.gauge .glow{fill:var(--sun);opacity:.18}
+.gauge .cap{font-family:var(--f-display);font-size:15px;font-weight:700;fill:var(--ink)}
+.gauge .cap-sub{font-family:var(--f-body);font-size:12px;fill:var(--muted)}
+@media (prefers-reduced-motion:no-preference){
+  .gauge .fill{stroke-dasharray:var(--len);stroke-dashoffset:calc(var(--len) * .55);animation:open 2.2s cubic-bezier(.22,.8,.26,1) .3s forwards}
+  .gauge .sun-g{transform-origin:230px 230px;transform:rotate(-80deg);animation:swing 2.2s cubic-bezier(.22,.8,.26,1) .3s forwards}
+  .gauge .glow{animation:breathe 4s ease-in-out 2.5s infinite}
+}
+@keyframes open{to{stroke-dashoffset:0}}
+@keyframes swing{to{transform:rotate(0)}}
+@keyframes breathe{50%{opacity:.32}}
+
+/* ---------- worries ---------- */
+.worries{background:var(--surface)}
+.worry-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 28px;list-style:none;margin:0;padding:0}
+.worry-list li{
+  display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px dashed var(--line);
+  font-size:1.05rem;min-width:0;
+}
+.worry-list .chk{
+  flex:none;width:26px;height:26px;border-radius:8px;border:2px solid var(--leaf);margin-top:.2em;
+  display:grid;place-items:center;color:var(--leaf)
+}
+.answer{
+  margin-top:clamp(36px,5vw,56px);display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  font-family:var(--f-display);font-weight:700;font-size:clamp(1.2rem,2.6vw,1.6rem)
+}
+.answer .arrow{color:var(--sun)}
+
+/* ---------- pillars ---------- */
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.pillar{
+  background:var(--surface);border-radius:var(--r);padding:clamp(24px,3vw,32px);
+  display:grid;grid-template-rows:auto auto 1fr auto;gap:14px;min-width:0;
+  border:1px solid var(--line);
+}
+.pillar .kicker{font-family:var(--f-display);font-weight:700;font-size:.85rem;letter-spacing:.2em;color:var(--sun)}
+.pillar h3{font-size:1.3rem}
+.pillar p{color:var(--muted);font-size:.95rem}
+.pillar .detail{margin-top:6px;padding-top:16px;border-top:1px solid var(--line)}
+.detail-label{font-size:.75rem;letter-spacing:.12em;color:var(--muted);margin-bottom:10px;display:block}
+.joints{display:flex;flex-wrap:wrap;gap:6px}
+.joints span{font-size:.82rem;padding:.2em .75em;border-radius:6px;background:var(--leaf-soft)}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}
+.week span{
+  font-family:var(--f-display);font-size:.85rem;padding:.4em 0;border-radius:8px;
+  background:var(--bg);color:var(--muted)
+}
+.week span.on{background:var(--leaf);color:var(--on-leaf);font-weight:700}
+.memo{
+  background:var(--sun-soft);border-radius:12px;padding:14px 16px;font-size:.88rem;line-height:1.75;
+}
+.memo b{font-family:var(--f-num);font-weight:600;display:block;font-size:.8rem;color:var(--muted);margin-bottom:4px}
+
+/* ---------- scenes ---------- */
+/* 3枚は小さめ・同じ高さでそろえる（幅は各写真の縦横比に比例） */
+.scenes{padding-top:0}
+.scenes-inner{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(24px,4vw,48px);align-items:center}
+.scenes-head{display:grid;gap:12px;min-width:0}
+.scenes-head h2{font-size:clamp(1.35rem,2.6vw,1.75rem)}
+.scenes-head p{color:var(--muted);font-size:.95rem}
+.scene-strip{display:flex;gap:12px;min-width:0}
+.scene{margin:0;flex:calc(var(--ar)) 1 0;min-width:0;display:grid;gap:8px}
+.scene img{display:block;width:100%;height:auto;aspect-ratio:var(--ar);border-radius:12px}
+.scene figcaption{font-size:.8rem;color:var(--muted);text-align:center}
+
+/* ---------- staff ---------- */
+.staff{background:var(--leaf);color:var(--on-leaf)}
+.staff .eyebrow{color:var(--on-leaf)}
+.staff-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,80px);align-items:start}
+.staff h2{font-size:clamp(1.7rem,4vw,2.6rem)}
+.staff-intro{display:grid;gap:20px;min-width:0}
+.staff-intro p{opacity:.9}
+.promises{list-style:none;margin:0;padding:0;display:grid;gap:14px;min-width:0}
+.promises li{
+  background:color-mix(in srgb,var(--on-leaf) 10%,transparent);
+  border:1px solid color-mix(in srgb,var(--on-leaf) 22%,transparent);
+  border-radius:var(--r);padding:20px 22px;display:grid;gap:4px
+}
+.promises b{font-family:var(--f-display);font-size:1.1rem}
+.promises span{opacity:.85;font-size:.93rem}
+
+/* ---------- about ---------- */
+.about{padding-top:0}
+.profile{
+  background:var(--surface);border:1px solid var(--line);border-radius:24px;
+  padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,5vw,56px)
+}
+.profile-head{display:grid;gap:10px;align-content:start;min-width:0}
+.profile-org{font-size:.9rem;color:var(--muted);margin-top:6px}
+.profile-name{font-size:clamp(1.8rem,4vw,2.4rem);letter-spacing:.14em}
+.profile-lead{color:var(--muted);font-size:.95rem}
+.profile-list{margin:0;display:grid;gap:0;min-width:0}
+.profile-list>div{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:12px;padding-block:14px;border-bottom:1px dashed var(--line)}
+.profile-list>div:last-child{border-bottom:0}
+.profile-list dt{font-family:var(--f-display);font-weight:700;font-size:.9rem;color:var(--leaf)}
+.profile-list dd{margin:0;display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+.profile-list dd.small{display:block;font-size:.9rem;line-height:1.75}
+.pill{font-size:.82rem;padding:.2em .8em;border-radius:6px;background:var(--leaf-soft)}
+.pill.sun{background:var(--sun-soft)}
+
+/* ---------- ease ---------- */
+.ease-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.ease{
+  display:grid;gap:10px;padding:24px 4px 0;border-top:3px solid var(--leaf);min-width:0
+}
+.ease h3{font-size:1.15rem}
+.ease p{color:var(--muted);font-size:.95rem}
+.cost{
+  margin-top:clamp(32px,5vw,48px);background:var(--surface);border:1.5px dashed var(--sun);
+  border-radius:var(--r);padding:clamp(22px,3vw,32px);
+  display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center
+}
+.cost .coin{
+  width:64px;height:64px;border-radius:50%;background:var(--sun-soft);display:grid;place-items:center;color:var(--sun)
+}
+.cost h3{font-size:1.2rem;margin-bottom:4px}
+.cost p{color:var(--muted)}
+
+/* ---------- flow ---------- */
+.flow{background:var(--surface)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
+.step{position:relative;display:grid;gap:10px;align-content:start;min-width:0}
+.step .num{
+  font-family:var(--f-num);font-weight:500;font-size:.8rem;letter-spacing:.14em;color:var(--leaf)
+}
+.step .dot{
+  width:48px;height:48px;border-radius:50%;background:var(--leaf-soft);display:grid;place-items:center;
+  font-family:var(--f-num);font-weight:600;font-size:1.2rem;color:var(--leaf);position:relative;z-index:1
+}
+.step:not(:last-child)::after{
+  content:"";position:absolute;top:24px;left:56px;right:-8px;height:2px;
+  background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 12px)
+}
+.step h3{font-size:1.08rem}
+.step p{color:var(--muted);font-size:.9rem}
+
+/* ---------- cta ---------- */
+.cta{text-align:left}
+.cta-box{
+  background:var(--ink);color:var(--bg);border-radius:28px;
+  padding:clamp(32px,6vw,72px);display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,5vw,56px);align-items:center;
+  position:relative;overflow:hidden
+}
+.cta-box::before{
+  content:"";position:absolute;width:420px;height:420px;border-radius:50%;
+  right:-140px;top:-200px;background:radial-gradient(circle,var(--sun) 0%,transparent 65%);opacity:.35
+}
+.cta-box h2{font-size:clamp(1.6rem,3.8vw,2.4rem);position:relative}
+.cta-box p{opacity:.8;margin-top:14px;position:relative}
+.contact{display:grid;gap:12px;position:relative;min-width:0}
+.contact-row{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+  background:color-mix(in srgb,var(--bg) 10%,transparent);border-radius:14px;padding:14px 18px
+}
+.contact-row small{display:block;opacity:.7;font-size:.75rem;letter-spacing:.1em}
+.contact-row .val{display:block;font-family:var(--f-num);font-size:1.15rem;font-weight:500;color:inherit;text-decoration:none;word-break:break-all}
+.contact-row.person .org{display:block;font-size:.85rem;opacity:.85;line-height:1.6}
+.contact-row.person .name{display:block;font-family:var(--f-display);font-weight:700;font-size:1.3rem;letter-spacing:.12em}
+.phone-bar{display:none}
+.contact-row.line{flex-wrap:nowrap;align-items:center}
+.line-btn{
+  display:inline-block;margin-top:6px;padding:.5em 1.2em;border-radius:999px;
+  background:#06C755;color:#fff;font-family:var(--f-display);font-weight:700;font-size:.95rem;text-decoration:none
+}
+.line-note{display:block;font-size:.72rem;opacity:.7;line-height:1.6;margin-top:8px}
+.qr{width:96px;height:96px;flex:none;border-radius:8px;background:#fff;image-rendering:pixelated}
+.copy{
+  font-family:var(--f-body);font-size:.8rem;padding:.4em .9em;border-radius:999px;cursor:pointer;
+  background:transparent;color:var(--bg);border:1px solid color-mix(in srgb,var(--bg) 40%,transparent)
+}
+footer{padding-block:40px;color:var(--muted);font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* ---------- presenter dots ---------- */
+.dots{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:30;display:grid;gap:10px}
+.dots a{
+  width:10px;height:10px;border-radius:50%;background:var(--line);display:block;position:relative;transition:background .2s, transform .2s
+}
+.dots a.active{background:var(--leaf);transform:scale(1.35)}
+.dots a span{
+  position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;
+  font-size:.75rem;background:var(--ink);color:var(--bg);padding:.2em .7em;border-radius:6px;
+  opacity:0;pointer-events:none;transition:opacity .2s
+}
+.dots a:hover span,.dots a:focus-visible span{opacity:1}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .pillars,.ease-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:32px}
+  .step:nth-child(2)::after{display:none}
+  .staff-grid,.cta-box,.scenes-inner,.profile{grid-template-columns:1fr}
+  .dots{display:none}
+}
+@media (max-width:720px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-photo{order:-1}
+  .worry-list{grid-template-columns:1fr}
+  .top .btn{display:none}
+}
+@media (max-width:560px){
+  .scene-strip{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+  .scene{flex:none;width:calc(130px * var(--ar));scroll-snap-align:start}
+}
+/* ---------- スマホ（主な閲覧環境） ---------- */
+@media (max-width:560px){
+  body{font-size:15.5px;line-height:1.85;padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  section{padding-block:56px}
+  .sec-head{margin-bottom:28px;gap:10px}
+  .sec-head h2{font-size:1.45rem}
+  .top .wrap{padding-block:10px}
+  .brand{font-size:.88rem;gap:.45em}
+  .hero{padding-block:18px 52px}
+  .hero-copy{gap:20px}
+  .hero h1{font-size:1.95rem}
+  .hero-lead{font-size:.98rem}
+  .tag{font-size:.78rem}
+  .hero-cta{display:grid;gap:10px}
+  .hero-cta .btn{justify-content:center;width:100%}
+  .photo-chip{left:10px;bottom:10px;font-size:.74rem}
+  .worry-list li{font-size:1rem;padding:14px 0}
+  .answer{font-size:1.12rem;gap:10px;flex-wrap:nowrap}
+  .pillar{padding:22px 20px}
+  .pillar h3{font-size:1.2rem}
+  .staff h2{font-size:1.65rem}
+  .promises li{padding:16px 18px}
+  .ease-grid{gap:28px}
+  .ease{padding-top:18px}
+  .cost{grid-template-columns:1fr;gap:12px;padding:22px 20px}
+  .cost .coin{width:52px;height:52px}
+  /* 流れは縦のタイムラインに */
+  .steps{grid-template-columns:1fr;row-gap:24px}
+  .step{grid-template-columns:44px 1fr;column-gap:14px;row-gap:2px}
+  .step .dot{grid-row:span 2;width:44px;height:44px;font-size:1.05rem}
+  .step h3{align-self:center}
+  .step:not(:last-child)::after{
+    display:block;top:50px;bottom:-22px;left:21px;right:auto;width:2px;height:auto;
+    background:repeating-linear-gradient(180deg,var(--line) 0 6px,transparent 6px 12px)
+  }
+  .cta .wrap{padding-inline:12px}
+  .cta-box{padding:32px 20px;border-radius:22px;gap:24px}
+  .cta-box h2{font-size:1.6rem}
+  .contact-row{padding:14px 16px}
+  .profile{padding:26px 20px;border-radius:20px}
+  .profile-list>div{grid-template-columns:1fr;gap:4px}
+  .qr{width:76px;height:76px}
+  .copy{padding:.55em 1em}
+  footer{padding-block:28px}
+  footer .wrap{display:grid;gap:4px}
+  .phone-bar{
+    display:block;position:fixed;left:0;right:0;bottom:0;z-index:40;
+    padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px));
+    background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);
+    font-family:var(--f-display);font-weight:700;font-size:1rem;text-align:center;text-decoration:none;color:var(--on-leaf);
+  }
+  .phone-bar::before{
+    content:"";position:absolute;inset:10px 16px calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--leaf);border-radius:999px;z-index:-1
+  }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 20a10 10 0 0 1 20 0" fill="none" stroke="var(--leaf)" stroke-width="3" stroke-linecap="round"/><circle cx="19.5" cy="12" r="3" fill="var(--sun)"/></svg>
+      <span class="brand-name">糸井針灸<span class="sep">／</span><wbr>やくしマッサージ接骨院</span>
+    </a>
+    <a class="btn" href="#contact">お問い合わせ</a>
+  </div>
+</header>
+
+<nav class="dots" aria-label="セクション">
+  <a href="#top"><span>はじめに</span></a>
+  <a href="#worries"><span>こんなお悩み</span></a>
+  <a href="#value"><span>3つの価値</span></a>
+  <a href="#scenes"><span>施術の様子</span></a>
+  <a href="#staff"><span>スタッフ</span></a>
+  <a href="#about"><span>代表について</span></a>
+  <a href="#ease"><span>施設さまの負担</span></a>
+  <a href="#flow"><span>ご利用の流れ</span></a>
+  <a href="#contact"><span>お問い合わせ</span></a>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">福祉施設向け 訪問マッサージ</span>
+        <h1>からだがほぐれると<br><span class="hl">毎日がすこし</span><br><span class="hl">明るくなる</span></h1>
+        <p class="hero-lead">スタッフが施設まで伺い、マッサージとリラクゼーションで関節の可動域の維持・変化をめざします。ご本人には気分転換のひとときを。ご家族には安心を。</p>
+        <div class="hero-tags">
+          <span class="tag">施設へ訪問</span>
+          <span class="tag">福祉の現場経験スタッフ</span>
+          <span class="tag">職員さんの手間ほぼなし</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn" href="#contact">見学・体験を相談する</a>
+          <a class="btn ghost" href="#value">サービスを見る</a>
+        </div>
+      </div>
+
+      <figure class="hero-photo">
+      <div class="gauge" aria-hidden="true">
+        <svg viewBox="0 0 460 240">
+          <defs>
+            <linearGradient id="g-arc" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="var(--leaf)"/>
+              <stop offset="1" stop-color="var(--sun)"/>
+            </linearGradient>
+          </defs>
+          <g id="ticks"></g>
+          <path class="track" d="M60 230 A170 170 0 0 1 400 230"/>
+          <path class="fill" id="arcfill" d="M60 230 A170 170 0 0 1 380.8 150.7"/>
+          <g class="sun-g">
+            <circle class="glow" cx="380.8" cy="150.7" r="30"/>
+            <circle class="sunball" cx="380.8" cy="150.7" r="13"/>
+          </g>
+          <text class="deg" x="230" y="14" text-anchor="middle">90°</text>
+        </svg>
+      </div>
+        <div class="photo-frame">
+          <img src="images/photo3.jpg" width="1084" height="696" alt="座った方の肩に両手を添えて、スタッフが肩まわりをほぐしている様子">
+          <span class="photo-chip">肩まわりのほぐし</span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- WORRIES -->
+  <section class="worries" id="worries">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">こんなことありませんか</span>
+        <h2>施設のみなさまからよく伺うお声です</h2>
+      </div>
+      <ul class="worry-list">
+        <li><span class="chk"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>体がかたくなってきた利用者さんが気になっている</li>
+        <li><span class="chk"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>毎日の過ごし方に心地よい変化をつくりたい</li>
+        <li><span class="chk"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>離れて暮らすご家族に安心してもらえる材料がほしい</li>
+        <li><span class="chk"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>でも職員さんの仕事はこれ以上増やしたくない</li>
+      </ul>
+      <p class="answer"><span class="arrow">→</span>そのすべてに訪問マッサージがお応えします</p>
+    </div>
+  </section>
+
+  <!-- VALUE -->
+  <section id="value">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">訪問マッサージが届けるもの</span>
+        <h2>からだ・こころ・ご家族へ</h2>
+        <p>1回の施術がご本人の体と気持ちをほぐし、離れて暮らすご家族の安心にもつながります。</p>
+      </div>
+      <div class="pillars">
+        <article class="pillar">
+          <span class="kicker">からだ</span>
+          <h3>ほぐして動かして<br>今の体を守る</h3>
+          <p>マッサージとリラクゼーションで筋肉のこわばりをゆるめ、関節の可動域の維持・変化をめざします。体の状態に合わせて無理のない範囲で行います。</p>
+          <div class="detail">
+            <span class="detail-label">主なケア部位</span>
+            <div class="joints"><span>首・肩</span><span>肘・手首</span><span>腰</span><span>股関節</span><span>膝</span><span>足首</span></div>
+          </div>
+        </article>
+        <article class="pillar">
+          <span class="kicker">こころ</span>
+          <h3>「いつもの時間」が<br>楽しみになる</h3>
+          <p>決まった曜日に顔なじみのスタッフが来る。その繰り返しが生活のリズムになり、気分転換のひとときとして定着していきます。</p>
+          <div class="detail">
+            <span class="detail-label">訪問スケジュールの例（週2回）</span>
+            <div class="week"><span>月</span><span class="on">火</span><span>水</span><span>木</span><span class="on">金</span><span>土</span><span>日</span></div>
+          </div>
+        </article>
+        <article class="pillar">
+          <span class="kicker">ご家族</span>
+          <h3>離れていても<br>ケアが届いている安心</h3>
+          <p>離れて暮らす親御さんにとって「定期的にケアを受けている」ことそのものが安心になります。ご様子もお伝えしやすくなります。</p>
+          <div class="detail">
+            <span class="detail-label">施術メモのイメージ</span>
+            <div class="memo"><b>10/14 (火)</b>肩まわりがやわらかくなりました。終わったあとは笑顔でお話ししてくれました。</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENES -->
+  <section class="scenes" id="scenes">
+    <div class="wrap scenes-inner">
+      <div class="scenes-head">
+        <span class="eyebrow">施術の様子</span>
+        <h2>表情を見ながらゆっくりと</h2>
+        <p>寝たままでも座ったままでも大丈夫です。その方が楽な姿勢で行います。</p>
+      </div>
+      <div class="scene-strip">
+        <figure class="scene" style="--ar:1076/608">
+          <img src="images/photo1.jpg" width="1076" height="608" loading="lazy" alt="スタッフが、仰向けに寝た方の脚をゆっくり曲げてストレッチしている様子">
+          <figcaption>股関節・膝のストレッチ</figcaption>
+        </figure>
+        <figure class="scene" style="--ar:1076/680">
+          <img src="images/photo2.jpg" width="1076" height="680" loading="lazy" alt="座った方の後ろからスタッフが両腕を支え、肩と背中をひらくストレッチをしている様子">
+          <figcaption>肩・背中をひらく</figcaption>
+        </figure>
+        <figure class="scene" style="--ar:1030/612">
+          <img src="images/photo4.jpg" width="1030" height="612" loading="lazy" alt="スタッフが、布団に仰向けで寝た方の腕と手をやさしく動かしている様子">
+          <figcaption>腕・手のケア</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAFF -->
+  <section class="staff" id="staff">
+    <div class="wrap staff-grid">
+      <div class="staff-intro">
+        <span class="eyebrow">スタッフについて</span>
+        <h2>わたしたちも<br>福祉の現場にいました</h2>
+        <p>代表をはじめスタッフは福祉の現場で働いてきた経験があります。ご本人の気持ちやその日の調子に寄り添いながら関わることを何より大切にしています。</p>
+      </div>
+      <ul class="promises">
+        <li><b>ご本人のペースで</b><span>その日の体調や気分を見ながら時間や内容を調整します。</span></li>
+        <li><b>無理に距離を詰めない</b><span>初めての方にも少しずつ慣れていただけるよう関わります。</span></li>
+        <li><b>言葉以外のサインも大切に</b><span>表情やしぐさから「心地よい」「いやだ」を受けとめます。</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="profile">
+        <div class="profile-head">
+          <span class="eyebrow">代表について</span>
+          <p class="profile-org">糸井針灸／やくしマッサージ接骨院 代表</p>
+          <h2 class="profile-name">糸井 裕人</h2>
+          <p class="profile-lead">針灸・マッサージ・整体を中心に、施設やご自宅への出張施術を行っています。大阪と京都を拠点に活動しています。</p>
+        </div>
+        <dl class="profile-list">
+          <div><dt>施術</dt><dd><span class="pill">針灸</span><span class="pill">マッサージ</span><span class="pill">整体</span><span class="pill sun">出張可</span></dd></div>
+          <div><dt>そのほかの事業</dt><dd class="small">高配合 幹細胞エクソソーム美容<br>ムダの無い脱毛店<br>オーダープリント</dd></div>
+          <div><dt>大阪</dt><dd class="small">〒530-0026<br>大阪市北区神山町 9-31<br>シェリロ神山 902号室</dd></div>
+          <div><dt>京都</dt><dd class="small">〒612-8276<br>京都市伏見区納所薬師堂 1-97</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- EASE -->
+  <section id="ease">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">施設さまのご負担</span>
+        <h2>職員さんの手間はほとんど増えません</h2>
+        <p>必要な手続きから日々の施術までわたしたちが引き受けます。</p>
+      </div>
+      <div class="ease-grid">
+        <div class="ease">
+          <h3>同意書は提携クリニックが対応</h3>
+          <p>施術に必要な医師の同意書は提携クリニックと連携して手配します。施設さまで病院を探していただく必要はありません。</p>
+        </div>
+        <div class="ease">
+          <h3>訪問・施術・記録まで</h3>
+          <p>決まった日時にスタッフが伺い、施術から記録まで行います。職員さんにお願いすることは最小限です。</p>
+        </div>
+        <div class="ease">
+          <h3>日程は施設さまに合わせて</h3>
+          <p>行事や日課のじゃまにならない時間帯で訪問スケジュールを組みます。</p>
+        </div>
+      </div>
+      <div class="cost">
+        <div class="coin"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="11" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M10 16l3.5 3.5L20.5 11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <h3>費用について</h3>
+          <p>ご利用者さまのご負担が少なくすむ仕組みがあります。詳しくはお会いした際に直接ご説明します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOW -->
+  <section class="flow" id="flow">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">ご利用の流れ</span>
+        <h2>ご相談から最短でスタートできます</h2>
+      </div>
+      <ol class="steps">
+        <li class="step"><span class="dot">1</span><h3>ご相談・ご説明</h3><p>施設に伺いサービス内容や費用の仕組みをご説明します。</p></li>
+        <li class="step"><span class="dot">2</span><h3>同意書の手配</h3><p>提携クリニックと連携して同意書の手続きを進めます。</p></li>
+        <li class="step"><span class="dot">3</span><h3>スケジュール決定</h3><p>ご利用者さまごとに訪問の曜日と時間を決めます。</p></li>
+        <li class="step"><span class="dot">4</span><h3>定期訪問スタート</h3><p>決まった日時にスタッフが伺い施術を行います。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>まずは一度<br>体験してみませんか</h2>
+          <p>職員さんやご利用者さまに実際に受けていただくのがいちばん伝わると思っています。お気軽にご相談ください。</p>
+        </div>
+        <div class="contact">
+          <div class="contact-row person"><div><small>担当</small><span class="org">糸井針灸／やくしマッサージ接骨院 代表</span><span class="name">糸井 裕人</span></div></div>
+          <div class="contact-row"><div><small>電話</small><a class="val" id="tel" href="tel:09059779560">090-5977-9560</a></div><button class="copy" type="button" data-copy="tel">コピー</button></div>
+          <div class="contact-row"><div><small>メール</small><a class="val" id="mail" href="mailto:rejoice.sense@gmail.com">rejoice.sense@gmail.com</a></div><button class="copy" type="button" data-copy="mail">コピー</button></div>
+          <div class="contact-row line"><div><small>LINE</small><a class="line-btn" href="https://line.me/ti/p/aTLTwDyK2f">友だち追加する</a><span class="line-note">スマホで見ている方はボタンから<br>パソコンの方はQRコードを読み取ってください</span></div><img class="qr" src="images/line-qr.png" width="330" height="330" alt="LINE友だち追加のQRコード"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="phone-bar" href="#contact">見学・体験のご相談はこちら</a>
+
+<footer>
+  <div class="wrap"><span>糸井針灸／やくしマッサージ接骨院</span><span>拠点：大阪・京都</span></div>
+</footer>
+
+<script>
+// 分度器の目盛り
+(function(){
+  const g=document.getElementById('ticks');const cx=230,cy=230,r1=196,r2=206;
+  for(let d=0;d<=180;d+=10){
+    const a=Math.PI*(1-d/180),major=d%90===0;
+    const ri=major?r1-6:r1;
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',cx+ri*Math.cos(a));l.setAttribute('y1',cy-ri*Math.sin(a));
+    l.setAttribute('x2',cx+r2*Math.cos(a));l.setAttribute('y2',cy-r2*Math.sin(a));
+    l.setAttribute('class','tick'+(major?' major':''));g.appendChild(l);
+  }
+  const f=document.getElementById('arcfill');f.style.setProperty('--len',f.getTotalLength());
+})();
+
+// プレゼン用：ドットナビのハイライトと ←→ キーでのセクション移動
+(function(){
+  const secs=[...document.querySelectorAll('main section')];
+  const dots=[...document.querySelectorAll('.dots a')];
+  let cur=0;
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){cur=secs.indexOf(e.target);dots.forEach((d,i)=>d.classList.toggle('active',i===cur));}});
+  },{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(s=>io.observe(s));
+  dots[0].classList.add('active');
+  addEventListener('keydown',e=>{
+    if(e.target.closest('input,textarea'))return;
+    let n=null;
+    if(e.key==='ArrowRight')n=Math.min(cur+1,secs.length-1);
+    if(e.key==='ArrowLeft')n=Math.max(cur-1,0);
+    if(n!==null){e.preventDefault();secs[n].scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}
+  });
+})();
+
+// 連絡先コピー
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
+  const el=document.getElementById(b.dataset.copy);const t=el.textContent.trim();
+  const done=()=>{b.textContent='コピーしました';setTimeout(()=>b.textContent='コピー',1600)};
+  try{navigator.clipboard.writeText(t).then(done,()=>sel(el))}catch(_){sel(el)}
+  function sel(n){const r=document.createRange();r.selectNodeContents(n);const s=getSelection();s.removeAllRanges();s.addRange(r)}
+}));
+</script>
+
+</body>
+</html>
