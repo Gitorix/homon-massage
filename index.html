@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Outfit:wght@400;500;600&display=swap">
 <style>
-/* Layout: 施設訪問の場でめくるように見せる縦長LP。各セクション＝1枚のスライド。ヒーローは「可動域の分度器」が朝日のように開く */
+/* Layout: 施設訪問の場でめくるように見せる縦長LP。各セクション＝1枚のスライド。ヒーロー写真の後ろで光がゆっくり呼吸する */
 :root{
   --bg:#F2F6F4;
   --surface:#FFFFFF;
@@ -109,9 +109,14 @@ section{padding-block:clamp(72px,11vw,128px);scroll-margin-top:0}
   background:var(--leaf-soft);color:var(--ink);
 }
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
-.hero-photo{margin:0;position:relative;padding-top:24%;min-width:0}
-.gauge{position:absolute;top:0;left:9%;width:82%;aspect-ratio:460/240;z-index:0}
-.gauge svg{width:100%;height:100%;overflow:visible}
+.hero-photo{margin:0;position:relative;padding-block:8% 4%;min-width:0}
+/* 写真の後ろで、ゆっくり呼吸するようにふくらむ光（リラックスと「明るくなる」を表す） */
+.halo{position:absolute;inset:0;z-index:0;pointer-events:none}
+.halo span{position:absolute;border-radius:50%;aspect-ratio:1}
+.halo .g-sun{width:78%;right:-18%;top:-22%;background:radial-gradient(circle,color-mix(in srgb,var(--sun) 72%,transparent) 0%,color-mix(in srgb,var(--sun) 28%,transparent) 38%,transparent 68%)}
+.halo .g-leaf{width:70%;left:-20%;bottom:-24%;background:radial-gradient(circle,color-mix(in srgb,var(--leaf) 50%,transparent) 0%,color-mix(in srgb,var(--leaf) 18%,transparent) 38%,transparent 68%)}
+.halo .ring{width:46%;right:-2%;top:-10%;border:2px solid color-mix(in srgb,var(--sun) 75%,transparent);opacity:.5}
+.halo .ring.r2{width:46%}
 .photo-frame{position:relative;z-index:1}
 .photo-frame img{
   display:block;width:100%;height:auto;border-radius:22px;
@@ -122,23 +127,14 @@ section{padding-block:clamp(72px,11vw,128px);scroll-margin-top:0}
   background:var(--surface);color:var(--ink);padding:.35em .95em;border-radius:999px;
   box-shadow:0 6px 16px -10px color-mix(in srgb,var(--ink) 60%,transparent);
 }
-.gauge .tick{stroke:var(--line);stroke-width:2;stroke-linecap:round}
-.gauge .tick.major{stroke:var(--muted);stroke-width:2.4}
-.gauge .track{fill:none;stroke:var(--leaf-soft);stroke-width:22;stroke-linecap:round}
-.gauge .fill{fill:none;stroke:url(#g-arc);stroke-width:22;stroke-linecap:round}
-.gauge .deg{font-family:var(--f-num);font-size:13px;fill:var(--muted)}
-.gauge .sunball{fill:var(--sun)}
-.gauge .glow{fill:var(--sun);opacity:.18}
-.gauge .cap{font-family:var(--f-display);font-size:15px;font-weight:700;fill:var(--ink)}
-.gauge .cap-sub{font-family:var(--f-body);font-size:12px;fill:var(--muted)}
 @media (prefers-reduced-motion:no-preference){
-  .gauge .fill{stroke-dasharray:var(--len);stroke-dashoffset:calc(var(--len) * .55);animation:open 2.2s cubic-bezier(.22,.8,.26,1) .3s forwards}
-  .gauge .sun-g{transform-origin:230px 230px;transform:rotate(-80deg);animation:swing 2.2s cubic-bezier(.22,.8,.26,1) .3s forwards}
-  .gauge .glow{animation:breathe 4s ease-in-out 2.5s infinite}
+  .halo .g-sun{animation:breath 7s ease-in-out infinite}
+  .halo .g-leaf{animation:breath 7s ease-in-out -3.5s infinite}
+  .halo .ring{animation:ripple 7s ease-out infinite}
+  .halo .ring.r2{animation-delay:-3.5s}
 }
-@keyframes open{to{stroke-dashoffset:0}}
-@keyframes swing{to{transform:rotate(0)}}
-@keyframes breathe{50%{opacity:.32}}
+@keyframes breath{0%,100%{transform:scale(.92);opacity:.75}50%{transform:scale(1.06);opacity:1}}
+@keyframes ripple{0%{transform:scale(.5);opacity:0}25%{opacity:.85}100%{transform:scale(1.5);opacity:0}}
 
 /* ---------- worries ---------- */
 .worries{background:var(--surface)}
@@ -436,24 +432,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       </div>
 
       <figure class="hero-photo">
-      <div class="gauge" aria-hidden="true">
-        <svg viewBox="0 0 460 240">
-          <defs>
-            <linearGradient id="g-arc" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="var(--leaf)"/>
-              <stop offset="1" stop-color="var(--sun)"/>
-            </linearGradient>
-          </defs>
-          <g id="ticks"></g>
-          <path class="track" d="M60 230 A170 170 0 0 1 400 230"/>
-          <path class="fill" id="arcfill" d="M60 230 A170 170 0 0 1 380.8 150.7"/>
-          <g class="sun-g">
-            <circle class="glow" cx="380.8" cy="150.7" r="30"/>
-            <circle class="sunball" cx="380.8" cy="150.7" r="13"/>
-          </g>
-          <text class="deg" x="230" y="14" text-anchor="middle">90°</text>
-        </svg>
-      </div>
+        <div class="halo" aria-hidden="true"><span class="g-sun"></span><span class="g-leaf"></span><span class="ring"></span><span class="ring r2"></span></div>
         <div class="photo-frame">
           <img src="images/photo3.jpg" width="1084" height="696" alt="座った方の肩に両手を添えて、スタッフが肩まわりをほぐしている様子">
           <span class="photo-chip">肩まわりのほぐし</span>
@@ -511,7 +490,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
           <h3>離れていても<br>ケアが届いている安心</h3>
           <p>離れて暮らす親御さんにとって「定期的にケアを受けている」ことそのものが安心になります。ご様子もお伝えしやすくなります。</p>
           <div class="detail">
-            <span class="detail-label">施術メモのイメージ</span>
+            <span class="detail-label">イメージ</span>
             <div class="memo"><b>10/14 (火)</b>肩まわりがやわらかくなりました。終わったあとは笑顔でお話ししてくれました。</div>
           </div>
         </article>
@@ -568,10 +547,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
           <span class="eyebrow">代表について</span>
           <p class="profile-org">糸井針灸／やくしマッサージ接骨院 代表</p>
           <h2 class="profile-name">糸井 裕人</h2>
-          <p class="profile-lead">針灸・マッサージ・整体を中心に、施設やご自宅への出張施術を行っています。大阪と京都を拠点に活動しています。</p>
+          <p class="profile-lead">針灸・マッサージを中心に、施設やご自宅への出張施術を行っています。大阪と京都を拠点に活動しています。</p>
         </div>
         <dl class="profile-list">
-          <div><dt>施術</dt><dd><span class="pill">針灸</span><span class="pill">マッサージ</span><span class="pill">整体</span><span class="pill sun">出張可</span></dd></div>
+          <div><dt>施術</dt><dd><span class="pill">針灸</span><span class="pill">マッサージ</span><span class="pill">保険</span><span class="pill sun">出張可</span><span class="pill sun">女性スタッフ</span></dd></div>
           <div><dt>そのほかの事業</dt><dd class="small">高配合 幹細胞エクソソーム美容<br>ムダの無い脱毛店<br>オーダープリント</dd></div>
           <div><dt>大阪</dt><dd class="small">〒530-0026<br>大阪市北区神山町 9-31<br>シェリロ神山 902号室</dd></div>
           <div><dt>京都</dt><dd class="small">〒612-8276<br>京都市伏見区納所薬師堂 1-97</dd></div>
@@ -654,20 +633,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 </footer>
 
 <script>
-// 分度器の目盛り
-(function(){
-  const g=document.getElementById('ticks');const cx=230,cy=230,r1=196,r2=206;
-  for(let d=0;d<=180;d+=10){
-    const a=Math.PI*(1-d/180),major=d%90===0;
-    const ri=major?r1-6:r1;
-    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
-    l.setAttribute('x1',cx+ri*Math.cos(a));l.setAttribute('y1',cy-ri*Math.sin(a));
-    l.setAttribute('x2',cx+r2*Math.cos(a));l.setAttribute('y2',cy-r2*Math.sin(a));
-    l.setAttribute('class','tick'+(major?' major':''));g.appendChild(l);
-  }
-  const f=document.getElementById('arcfill');f.style.setProperty('--len',f.getTotalLength());
-})();
-
 // プレゼン用：ドットナビのハイライトと ←→ キーでのセクション移動
 (function(){
   const secs=[...document.querySelectorAll('main section')];
