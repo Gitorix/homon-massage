@@ -62,7 +62,7 @@
 /* ---------- base ---------- */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.step::after{transform:none}}
 body{
   background:var(--bg);color:var(--ink);
   font-family:var(--f-body);font-size:15.5px;line-height:1.95;letter-spacing:.03em;
@@ -118,29 +118,24 @@ a{color:inherit}
 .top .btn{display:none;padding:.65em 1.3em;font-size:.88rem}
 
 /* ---------- hero ---------- */
-.hero{padding-block:8px 72px}
+.hero{padding-block:20px 0;overflow:clip}
 .hero .wrap{display:grid}
-.hero-visual{
-  position:relative;margin:0;border-radius:28px;overflow:hidden;isolation:isolate;
-  box-shadow:var(--shadow);background:var(--leaf-soft);
+.hero-visual{position:relative;margin:0;isolation:isolate;padding-top:6px}
+/* アーチ型の窓。上の丸みと右端で、男の子の顔が半分ほど隠れる位置に合わせている */
+.frame{
+  position:relative;z-index:1;overflow:hidden;background:var(--leaf-soft);
+  border-radius:50% 50% 24px 24px / 62.5% 62.5% 24px 24px;box-shadow:var(--shadow);
 }
-.hero-visual img{width:100%;aspect-ratio:5/4;object-fit:cover;object-position:right center}
-/* 窓から差し込むような朝の光（写真の上なのでテーマに依存しない色） */
-.hero-visual .light{
-  position:absolute;right:-28%;top:-34%;width:95%;aspect-ratio:1;border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle,rgba(255,226,170,.75) 0%,rgba(255,200,120,.32) 34%,rgba(255,200,120,0) 66%);
-  mix-blend-mode:screen;
+.frame img{width:100%;aspect-ratio:5/4;object-fit:cover;object-position:40% 50%}
+/* 窓の後ろから昇る朝日 */
+.sunrise{
+  position:absolute;z-index:0;right:-3%;top:-4%;width:40%;aspect-ratio:1;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at 38% 36%,#FFD891 0%,var(--sun) 72%);
+  box-shadow:0 0 0 14px color-mix(in srgb,var(--sun) 16%,transparent),0 0 0 30px color-mix(in srgb,var(--sun) 8%,transparent);
 }
-.hero-visual .tate{
-  position:absolute;left:16px;top:18px;writing-mode:vertical-rl;
-  font-family:var(--f-mincho);font-weight:600;font-size:.84rem;letter-spacing:.36em;line-height:2.1;
-  color:#FFFFFF;text-shadow:0 1px 10px rgba(0,0,0,.35);
-}
-.hero-visual .tate span{display:block}
-.hero-visual .tate span:nth-child(2){padding-top:1.4em}
-.hero-visual .tate span:nth-child(3){padding-top:2.8em}
+.tate{display:none}
 .chip{
-  position:absolute;right:14px;top:14px;display:inline-flex;align-items:center;gap:6px;
+  position:absolute;left:14px;bottom:62px;display:inline-flex;align-items:center;gap:6px;
   font-size:.76rem;font-weight:500;padding:.38em 1em;border-radius:999px;
   background:color-mix(in srgb,var(--surface) 92%,transparent);color:var(--ink);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
@@ -165,6 +160,20 @@ a{color:inherit}
 }
 .tags svg{color:var(--leaf)}
 .hero-cta{display:grid;gap:10px;margin-top:4px}
+
+/* ---------- keyword band ---------- */
+.band{
+  margin-top:48px;margin-bottom:calc(var(--sheet) + 28px);overflow:hidden;
+  border-block:1px solid var(--line);padding-block:14px;
+}
+.band-track{display:flex;width:max-content}
+.band-track span{
+  display:flex;align-items:center;gap:22px;padding-right:22px;white-space:nowrap;
+  font-family:var(--f-display);font-weight:700;font-size:clamp(1.3rem,5vw,2.2rem);letter-spacing:.08em;
+  color:transparent;-webkit-text-stroke:1px var(--leaf);
+}
+.band-track i{font-style:normal;color:var(--sun);-webkit-text-stroke:0;font-size:.6em}
+.band-track em{font-style:normal;color:var(--leaf);-webkit-text-stroke:0}
 
 /* ---------- worries ---------- */
 .worries{background:var(--surface)}
@@ -244,6 +253,16 @@ a{color:inherit}
 .staff h2{font-size:clamp(1.65rem,6.4vw,2.6rem)}
 .staff-intro p{opacity:.88}
 .quote{font-family:var(--f-mincho);font-size:4.5rem;line-height:.6;color:var(--sun);height:.5em}
+.staff-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.staff-top .lbl{display:grid;gap:22px;padding-top:6px}
+.portrait{position:relative;margin:0;flex:none;display:grid;justify-items:center;gap:10px}
+.portrait .ph{position:relative;width:108px;aspect-ratio:1}
+.portrait img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid color-mix(in srgb,var(--on-deep) 92%,transparent)}
+.portrait .ring{position:absolute;inset:-9px;border-radius:50%;border:1.5px dashed var(--sun)}
+.portrait figcaption{
+  font-size:.7rem;font-weight:500;letter-spacing:.06em;padding:.25em .9em;border-radius:999px;
+  background:color-mix(in srgb,var(--on-deep) 12%,transparent);
+}
 .promises{list-style:none;margin:0;padding:0;display:grid;gap:12px;min-width:0}
 .promises li{
   display:grid;grid-template-columns:40px 1fr;gap:2px 14px;align-items:start;
@@ -311,6 +330,12 @@ a{color:inherit}
   background:repeating-linear-gradient(180deg,var(--line) 0 6px,transparent 6px 12px);
 }
 .step:last-child::before{display:none}
+.step::after{
+  content:"";position:absolute;left:27px;top:60px;bottom:4px;width:2px;background:var(--leaf);
+  transform-origin:top;transform:scaleY(0);transition:transform 1.1s cubic-bezier(.4,.1,.2,1) .25s;
+}
+.step:last-child::after{display:none}
+.step.in::after{transform:none}
 .step .num{
   grid-row:span 2;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;align-content:center;
   background:var(--surface);box-shadow:inset 0 0 0 2px var(--leaf);color:var(--leaf);line-height:1;
@@ -382,8 +407,10 @@ footer small{font-family:var(--f-num);letter-spacing:.08em;opacity:.8}
 
 /* ---------- motion ---------- */
 @media (prefers-reduced-motion:no-preference){
-  .hero-visual .light{animation:breath 7s ease-in-out infinite}
-  .hero-visual img{animation:settle 1.6s cubic-bezier(.2,.7,.2,1) both}
+  .sunrise{animation:rise 1.8s cubic-bezier(.2,.7,.2,1) .2s both,glow 6s ease-in-out 2s infinite}
+  .frame img{animation:settle 1.6s cubic-bezier(.2,.7,.2,1) both}
+  .band-track{animation:marquee 38s linear infinite}
+  .portrait .ring{animation:spin 24s linear infinite}
   .hl{animation:marker 1s cubic-bezier(.3,.7,.3,1) .5s both}
   .answer .down{animation:bob 2.6s ease-in-out infinite}
   /* 文字は常に見えたまま、少し下から位置だけが整う */
@@ -391,7 +418,10 @@ footer small{font-family:var(--f-num);letter-spacing:.08em;opacity:.8}
   .js .rv.in{transform:none}
   .js .rv.d1{transition-delay:.08s}.js .rv.d2{transition-delay:.16s}.js .rv.d3{transition-delay:.24s}
 }
-@keyframes breath{0%,100%{transform:scale(.9);opacity:.7}50%{transform:scale(1.08);opacity:1}}
+@keyframes rise{from{transform:translateY(45%) scale(.8)}to{transform:none}}
+@keyframes glow{50%{box-shadow:0 0 0 20px color-mix(in srgb,var(--sun) 18%,transparent),0 0 0 44px color-mix(in srgb,var(--sun) 7%,transparent)}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
 @keyframes settle{from{transform:scale(1.08)}to{transform:scale(1)}}
 @keyframes marker{from{background-size:0 100%}to{background-size:100% 100%}}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
@@ -419,6 +449,9 @@ footer small{font-family:var(--f-num);letter-spacing:.08em;opacity:.8}
   .step .num{grid-row:auto}
   .step::before{left:66px;right:-14px;top:27px;bottom:auto;width:auto;height:2px;
     background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 12px)}
+  .step::after{left:66px;right:-14px;top:27px;bottom:auto;width:auto;height:2px;transform-origin:left;transform:scaleX(0)}
+  .step.in::after{transform:none}
+  .portrait .ph{width:140px}
   .cta-box{padding:64px 48px 48px}
   .c-row{grid-template-columns:42px minmax(0,1fr) auto;padding:16px 18px}
   .c-row .ic{width:42px;height:42px}
@@ -434,14 +467,20 @@ footer small{font-family:var(--f-num);letter-spacing:.08em;opacity:.8}
   .gnav a{text-decoration:none;color:var(--muted);transition:color .2s}
   .gnav a:hover{color:var(--leaf)}
   .top-right{display:flex;align-items:center;gap:28px}
-  .hero{padding-block:48px 120px}
   .hero .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:64px;align-items:center}
   .hero-card{order:-1;margin:0;padding:0;background:none;box-shadow:none;gap:24px}
   .hero h1{font-size:clamp(2.3rem,3.5vw,3.1rem)}
-  .hero-visual{border-radius:36px}
-  .hero-visual img{aspect-ratio:1400/899;object-position:center}
-  .hero-visual .tate{font-size:.95rem;left:22px;top:26px}
-  .chip{right:auto;top:auto;left:18px;bottom:18px}
+  .hero{padding-top:48px}
+  .hero-visual{margin-left:56px}
+  .chip{bottom:22px;left:22px}
+  .tate{
+    display:block;position:absolute;left:-56px;top:16%;writing-mode:vertical-rl;
+    font-family:var(--f-mincho);font-weight:600;font-size:1rem;letter-spacing:.4em;line-height:2;color:var(--leaf);
+  }
+  .tate span{display:block}
+  .tate span:nth-child(2){padding-top:1.4em}
+  .tate span:nth-child(3){padding-top:2.8em}
+  .band{margin-top:96px}
   .pillars{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
   .staff .wrap{grid-template-columns:1fr 1fr;gap:72px;align-items:center}
   .profile{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;padding:56px}
@@ -490,10 +529,12 @@ footer small{font-family:var(--f-num);letter-spacing:.08em;opacity:.8}
   <section class="hero" id="top">
     <div class="wrap">
       <figure class="hero-visual">
-        <img src="images/photo3.jpg" width="1400" height="899" alt="座った方の肩に両手を添えて、スタッフが肩まわりをほぐしている様子">
-        <span class="light" aria-hidden="true"></span>
+        <span class="sunrise" aria-hidden="true"></span>
+        <div class="frame">
+          <img src="images/photo3.jpg" width="1400" height="899" alt="座った方の肩に両手を添えて、スタッフが肩まわりをほぐしている様子">
+          <span class="chip">肩まわりのほぐし</span>
+        </div>
         <p class="tate" aria-hidden="true"><span>ほぐす</span><span>ととのえる</span><span>つながる</span></p>
-        <figcaption class="chip">肩まわりのほぐし</figcaption>
       </figure>
 
       <div class="hero-card rv">
@@ -512,6 +553,7 @@ footer small{font-family:var(--f-num);letter-spacing:.08em;opacity:.8}
         </div>
       </div>
     </div>
+    <div class="band" aria-hidden="true"><div class="band-track"><span>ほぐす <i>●</i> ととのえる <i>●</i> つながる <i>●</i> <em>Relax</em> <i>●</i> <em>Move</em> <i>●</i> <em>Connect</em> <i>●</i></span><span>ほぐす <i>●</i> ととのえる <i>●</i> つながる <i>●</i> <em>Relax</em> <i>●</i> <em>Move</em> <i>●</i> <em>Connect</em> <i>●</i></span></div></div>
   </section>
 
   <!-- WORRIES -->
@@ -608,8 +650,13 @@ footer small{font-family:var(--f-num);letter-spacing:.08em;opacity:.8}
   <section class="sec sheet staff" id="staff">
     <div class="wrap">
       <div class="staff-intro rv">
-        <span class="label">Staff</span>
-        <span class="quote" aria-hidden="true">“</span>
+        <div class="staff-top">
+          <div class="lbl"><span class="label">Staff</span><span class="quote" aria-hidden="true">“</span></div>
+          <figure class="portrait">
+            <div class="ph"><span class="ring" aria-hidden="true"></span><img src="images/staff-woman.jpg" width="480" height="480" loading="lazy" alt="紺色のスクラブを着た女性スタッフの笑顔の写真"></div>
+            <figcaption>女性スタッフも在籍</figcaption>
+          </figure>
+        </div>
         <h2>わたしたちも<br>福祉の現場にいました</h2>
         <p>代表をはじめスタッフは福祉の現場で働いてきた経験があります。ご本人の気持ちやその日の調子に寄り添いながら関わることを何より大切にしています。</p>
       </div>
