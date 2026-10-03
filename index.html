@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F4F7F5">
 <meta name="description" content="福祉施設向けの訪問マッサージ。マッサージ・リラクゼーション・関節の可動域の維持と変化をめざしたケアで、ご本人には気分転換を、ご家族には安心を届けます。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gitorix.github.io/homon-massage/">
@@ -46,18 +48,8 @@
   --shadow:0 28px 56px -36px color-mix(in srgb,var(--ink) 55%,transparent);
   --shadow-sm:0 1px 0 var(--line),0 18px 36px -30px color-mix(in srgb,var(--ink) 50%,transparent);
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#0E1A19;--bg-2:#122321;--surface:#172A27;--ink:#E5EFEB;--muted:#9DB3AD;--leaf:#6CC2AD;--leaf-deep:#173A33;
-    --leaf-soft:#1E3732;--sun:#F2B65A;--sun-soft:#3A2E1B;--line:#29433E;--on-leaf:#0E1A19;--on-deep:#E5EFEB;
-    --cta-bg:#173A33;--cta-fg:#E5EFEB;color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0E1A19;--bg-2:#122321;--surface:#172A27;--ink:#E5EFEB;--muted:#9DB3AD;--leaf:#6CC2AD;--leaf-deep:#173A33;
-  --leaf-soft:#1E3732;--sun:#F2B65A;--sun-soft:#3A2E1B;--line:#29433E;--on-leaf:#0E1A19;--on-deep:#E5EFEB;
-  --cta-bg:#173A33;--cta-fg:#E5EFEB;color-scheme:dark;
-}
+/* スマホがダークモードでも、常にこの明るい配色で表示する */
+:root,:root[data-theme]{color-scheme:light}
 
 /* ---------- base ---------- */
 *{box-sizing:border-box}
